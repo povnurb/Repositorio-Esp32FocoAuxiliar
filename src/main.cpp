@@ -58,23 +58,7 @@ void setup() {
 }
 
 void loop(){
-  /*WiFiClient client = server.available();
-  if(!client){
-    return;
-  }  
-  serial.println("hay alguien conectado");
-  //aviso de alguien conectado
-  while (!cliente.available())
-  {
-    digitalWrite(RELAY, LOW); //creo que es un aviso de espera
-    Serial.println("En espera de clinte el led esta apagado?")
-    delay(1);
-  }
   
-  String request2 = Client.readStringuntil('\r');
-  Serial.println(request2);
-  client.flush();*/
-  //cuando este desconectado
   if(WiFi.status() != WL_CONNECTED){  //se hace para que se mantenga a la escucha de las peticiones
   //cuando esta desconectado, ya que en cuanto se pida una peticion nos enviara directamente
   //a la pagina principal
@@ -109,12 +93,6 @@ void initWiFiAP(){
   Serial.println(WiFi.softAPIP());
   initServer();
 }
-
-/*void RedesRequest(AsyncWebServerRequest *request){
- Serial.println("Peticion Redes");
- request->send(200, "text/plain", BuscarRedes().c_str());
-}*/
-
 String BuscarRedes(){
 
   WiFi.scanNetworks(true, false, true, 100);
